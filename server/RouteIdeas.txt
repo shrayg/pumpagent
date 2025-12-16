@@ -1,0 +1,16 @@
++ Pump Multi Sell: Sell tokens from multiple wallets at once
++ Pump Sell All: Sells all token holdings of specified wallets, taking care of amounts calculations. Specify funds receiver
++ Dex Single Buy: Buy any dex listed token
++ Dex Single Sell: Sell any dex listed token
++ Token Launch: Launch a token and specify the developer buy amount.
++ Token Bundle Launch: Launch a token bundle which includes up to 20 wallets (including developer).
++ Pump Token Bump: A single endpoint to invoke token bumps.
++ Check Dex Paid: Get info about dex payment
+- Bundle SOL Balance: Get SOL balances of wallets involved in your bundle.
+- Bundle Token Balance: Get token Balances of wallets involved in your bundle.
+- Burn & Close Accounts: Redeem SOL by burning (leftover) token amounts, and closing token accounts.
+- Reclaim funds: Send SOL from multiple wallets to a single source
+- Airdrop SOL: Send SOL to x wallets per transaction
+- Airdrop Tokens: Send tokens to x wallets per transaction
+- Generate funded wallets: Creates and funds a certain amount of wallets
+- Get token chart: https://frontend-api-v3.pump.fun/candlesticks/9mcG24KNif9yNRjVFH1uXSPrGyght9XeXC4Wm73Cpump?offset=0&limit=1000&timeframe=5

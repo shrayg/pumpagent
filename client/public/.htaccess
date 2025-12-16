@@ -1,0 +1,38 @@
+# disable MultiViews (as before)
+Options -MultiViews
+
+# Enable rewriting for SPA: if the request is not a real file or directory, serve index.html
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ index.html [QSA,L]
+
+# Long cache for versioned/static assets (JS, CSS, images, fonts, etc.)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # 1 year for immutable assets (assumes you use hashed filenames)
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Mark those as immutable and public
+  <FilesMatch "\.(js|css|webp|png|jpe?g|svg|gif|woff2?|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML should be fresh / revalidated
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
