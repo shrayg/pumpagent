@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader";
 import { FaInbox } from "react-icons/fa";
-import SOL from "../../../../../assets/SOL.png";
+import SOL from "../../../../../assets/Sol.png";
 import { FaRegCopy } from "react-icons/fa6";
 import {
   copy,

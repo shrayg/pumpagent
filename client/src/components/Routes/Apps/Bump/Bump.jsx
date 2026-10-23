@@ -5,7 +5,7 @@ import { FaDollarSign } from "react-icons/fa";
 import FetchToken from "./FetchToken";
 import { Keypair, VersionedTransaction } from "@solana/web3.js";
 import bs58 from "bs58";
-import SOL from "../../../../assets/SOL.png";
+import SOL from "../../../../assets/Sol.png";
 import { IoRocket } from "react-icons/io5";
 import { solConnection } from "../../../../../../server/utils/constants";
 import { smallerTimeAgo } from "../../../../utils/functions";

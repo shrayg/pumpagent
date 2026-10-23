@@ -1,5 +1,5 @@
 import { FaBomb } from "react-icons/fa6";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 import { Keypair, VersionedTransaction } from "@solana/web3.js";
 import { GiNetworkBars } from "react-icons/gi";
 import BumpBot from "./BumpBot";

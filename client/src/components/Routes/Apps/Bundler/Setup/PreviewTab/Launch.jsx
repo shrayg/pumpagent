@@ -7,7 +7,7 @@ import Toast from "../../Toast";
 import { getWalletSolBalances } from "../../../../../../utils/functions";
 import { ImStatsBars } from "react-icons/im";
 import { FaCircleInfo } from "react-icons/fa6";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 
 const Launch = ({ form, wallets, userData, setForm }) => {
   const [jitoTip, setJitoTip] = useState(

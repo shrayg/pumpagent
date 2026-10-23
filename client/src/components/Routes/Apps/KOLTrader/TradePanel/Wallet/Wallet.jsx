@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 import { IoWalletSharp } from "react-icons/io5";
 import { FaRegCopy } from "react-icons/fa6";
 import { copy } from "../../../../../../utils/functions";

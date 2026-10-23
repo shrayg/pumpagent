@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { kols } from "../../../../../../websocket/utils/kols";
-import SOL from "../../../../assets/SOL.png";
+import SOL from "../../../../assets/Sol.png";
 
 const CreateStrategy = ({ setOverlay, strategies, apiKey, setStrategies }) => {
   const proof = JSON.parse(

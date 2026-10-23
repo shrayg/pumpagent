@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SOL from "../../../../../assets/SOL.png";
+import SOL from "../../../../../assets/Sol.png";
 
 const SwapSettings = ({ setShowSwapsettings }) => {
   const levels = ["Medium", "High", "VeryHigh"];

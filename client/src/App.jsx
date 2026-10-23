@@ -34,7 +34,7 @@ const PumpTokenInfo = lazy(() =>
 );
 
 const PumpTokenInfoApp = lazy(() =>
-  import("./components/Routes/tools/PumpTokenInfo")
+  import("./components/Routes/Tools/PumpTokenInfo")
 );
 const PumpBondingCurve = lazy(() =>
   import("./components/Routes/HTTPS/PumpBondingCurve")

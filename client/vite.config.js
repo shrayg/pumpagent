@@ -23,6 +23,8 @@ export default defineConfig({
     alias: {
       buffer: "buffer",
     },
+    // ../server and ../websocket share modules with the client but have no node_modules in a client-only build.
+    dedupe: ["@solana/web3.js"],
   },
   optimizeDeps: {
     include: ["buffer"],

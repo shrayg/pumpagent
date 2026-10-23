@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { FaCog } from "react-icons/fa";
-import SOL from "../../../../../assets/SOL.png";
+import SOL from "../../../../../assets/Sol.png";
 import { FaPlus } from "react-icons/fa";
 import { MdManageSearch } from "react-icons/md";
 import { BsLightningChargeFill } from "react-icons/bs";

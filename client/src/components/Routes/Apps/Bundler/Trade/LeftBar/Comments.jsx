@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 
 const Comments = ({ userData, leftBarHeight, ca }) => {
   const [showReplies, setShowReplies] = useState(false);

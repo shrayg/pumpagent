@@ -1,7 +1,7 @@
 import { Keypair } from "@solana/web3.js";
 import bs58 from "bs58";
 import { FaRegCopy } from "react-icons/fa6";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 import { getWalletSolBalances } from "../../../../../../utils/functions";
 import { useEffect } from "react";
 const WalletsPreview = ({

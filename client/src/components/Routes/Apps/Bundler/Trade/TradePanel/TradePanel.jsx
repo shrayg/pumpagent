@@ -1,5 +1,5 @@
 import Menu from "./Menu";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 import Spinner from "../../../../../../assets/Spinner.svg";
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Keypair, VersionedTransaction } from "@solana/web3.js";

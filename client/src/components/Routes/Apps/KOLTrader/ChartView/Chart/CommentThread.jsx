@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 const CommentThread = ({ ca, apiKey, replies, setReplies, data, height }) => {
   const [showReplies, setShowReplies] = useState(false);
   const toggleCommentsTab = () => setShowReplies((prev) => !prev);

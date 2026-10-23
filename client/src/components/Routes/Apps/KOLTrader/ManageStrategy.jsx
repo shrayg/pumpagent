@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
-import SOL from "../../../../assets/SOL.png";
+import SOL from "../../../../assets/Sol.png";
 import { AuthContext } from "../../../../utils/AuthProvider";
 
 const ManageStrategy = ({

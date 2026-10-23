@@ -3,7 +3,7 @@ import { Keypair, VersionedTransaction } from "@solana/web3.js";
 import bs58 from "bs58";
 import { solConnection } from "../../../../../../../../server/utils/constants";
 import { FaRegCopy } from "react-icons/fa6";
-import SOL from "../../../../../../assets/SOL.png";
+import SOL from "../../../../../../assets/Sol.png";
 import Spinner from "../../../../../../assets/Spinner.svg";
 import { privToPub } from "../../../../../../utils/functions";
 import { FaRotateRight } from "react-icons/fa6";

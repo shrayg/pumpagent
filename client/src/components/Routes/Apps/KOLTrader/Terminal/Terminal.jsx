@@ -1,6 +1,6 @@
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { FaLongArrowAltDown } from "react-icons/fa";
-import SOL from "../../../../../assets/SOL.png";
+import SOL from "../../../../../assets/Sol.png";
 import Spinner from "../../../../../assets/Spinner.svg";
 import Pump from "../../../../../assets/Pump.png";
 import {

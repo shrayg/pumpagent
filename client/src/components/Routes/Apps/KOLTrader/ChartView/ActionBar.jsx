@@ -2,7 +2,7 @@ import { IoClose, IoRocket } from "react-icons/io5";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { FaCog } from "react-icons/fa";
 import { useContext, useEffect, useRef, useState } from "react";
-import SOL from "../../../../../assets/SOL.png";
+import SOL from "../../../../../assets/Sol.png";
 import { AuthContext } from "../../../../../utils/AuthProvider";
 import {
   calculateMarketcap,
