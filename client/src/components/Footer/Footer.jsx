@@ -1,72 +1,99 @@
-import { useNavigate } from "react-router-dom";
-import Vial from "../../assets/Logo.webp";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaMediumM } from "react-icons/fa";
-import { IoLogoGithub } from "react-icons/io";
-import { FaDiscord } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaXTwitter, FaGithub, FaMedium } from "react-icons/fa6";
+import Logo from "../Brand/Logo";
+import { appNav } from "../../utils/navigation";
+
+const columns = [
+  {
+    title: "Product",
+    links: [
+      ...appNav.map(({ label, path }) => ({ label, to: path })),
+      { label: "Pricing", to: "/fees" },
+    ],
+  },
+  {
+    title: "Developers",
+    links: [
+      { label: "Documentation", to: "/https/introduction" },
+      { label: "Launch Token API", to: "/https/pump-launch-token" },
+      { label: "Wallet Generator", to: "/tools/wallet-generator" },
+      { label: "Vanity Grinder", to: "/tools/vanity-grinder" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Privacy", to: "/privacy" },
+      { label: "Contact", href: "mailto:contact@pumpagent.com" },
+    ],
+  },
+];
+
+const socials = [
+  { label: "Pump Agent on X", href: "https://x.com/PumpAgent", icon: FaXTwitter },
+  { label: "Pump Agent on GitHub", href: "https://github.com/PumpAgent", icon: FaGithub },
+  { label: "Pump Agent on Medium", href: "https://medium.com/@PumpAgent", icon: FaMedium },
+];
 
 const Footer = () => {
-  const navigate = useNavigate();
+  const { search } = useLocation();
 
   return (
-    <footer className="bg-black dark:bg-transparent border-t border-t-gray-800 text-gray-500 py-4 md:py-4 select-none">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex  flex-col md:flex-row justify-between items-center gap-2  md:gap-4">
-          <div className="text-sm flex justify-center items-center">
-            <img src={Vial} alt="Vial" className="w-3 h-3 mr-2" /> ©{" "}
-            {new Date().getFullYear()} PumpAgent. All rights reserved.
+    <footer className="border-t border-line bg-canvas">
+      <div className="container-page py-14">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="max-w-xs">
+            <Logo />
+            <p className="mt-4 text-[14px] leading-6 text-fg-muted">
+              The pump.fun API for builders and traders. Launch, bundle, and
+              trade Solana tokens from one key.
+            </p>
           </div>
 
-          <div className="flex justify-center items-center gap-2 bg-black dark:bg-transparent">
-            <button
-              className="text-gray-700 text-sm p-2.5 border border-gray-900 rounded-md cursor-pointer hover:text-white hover:border-gray-700 hover:bg-[#111]"
-              onClick={() => window.open("https://x.com/PumpAgent", "_blank")}
-              aria-label="Twitter Link"
-            >
-              <FaXTwitter />
-            </button>
-            <button
-              className="text-gray-700 text-sm p-2.5 border border-gray-900 rounded-md cursor-pointer hover:text-white hover:border-gray-700 hover:bg-[#111]"
-              onClick={() =>
-                window.open("https://discord.gg/WBmZss3jQq", "_blank")
-              }
-              aria-label="Discord Link"
-            >
-              <FaDiscord />
-            </button>
-            <button
-              className="text-gray-700 text-sm p-2.5 border border-gray-900 rounded-md cursor-pointer hover:text-white hover:border-gray-700 hover:bg-[#111]"
-              onClick={() =>
-                window.open("https://medium.com/@PumpAgent", "_blank")
-              }
-              aria-label="Twitter Link"
-            >
-              <FaMediumM />
-            </button>
-            <button
-              className="text-gray-700 text-sm p-2.5 border border-gray-900 rounded-md cursor-pointer hover:text-white hover:border-gray-700 hover:bg-[#111]"
-              onClick={() =>
-                window.open("https://github.com/PumpAgent", "_blank")
-              }
-              aria-label="GitHub Link"
-            >
-              <IoLogoGithub />
-            </button>
-          </div>
-          <div className="flex space-x-6 text-sm">
-            <a
-              href="/privacy"
-              className="hover:text-white transition-colors"
-              onClick={() => navigate("/privacy")}
-            >
-              Privacy
-            </a>
-            <a
-              href="mailto:contact@pumpagent.com"
-              className="hover:text-white transition-colors"
-            >
-              Contact
-            </a>
+          {columns.map((column) => (
+            <div key={column.title}>
+              <p className="text-[12px] font-semibold uppercase tracking-wider text-fg-subtle">
+                {column.title}
+              </p>
+              <ul className="mt-4 flex flex-col gap-2.5 text-[14px]">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    {link.href ? (
+                      <a href={link.href} className="text-fg-muted hover:text-fg transition-colors">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={`${link.to}${search}`}
+                        className="text-fg-muted hover:text-fg transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-line flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-[13px] text-fg-subtle">
+            © {new Date().getFullYear()} Pump Agent. All rights reserved.
+          </p>
+          <div className="flex items-center gap-1">
+            {socials.map((social) => (
+              <a
+                key={social.href}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="grid place-items-center w-9 h-9 rounded-md text-fg-subtle hover:text-fg hover:bg-surface-2 transition-colors"
+              >
+                <social.icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

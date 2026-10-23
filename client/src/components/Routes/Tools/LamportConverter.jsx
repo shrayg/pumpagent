@@ -40,19 +40,11 @@ const LamportConverter = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-full xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Lamport Converter</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/tools/lamport-converter"
-        />
-        <meta property="og:title" content="PumpAgent - Lamport Converter" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/tools/lamport-converter"
-        />
+        <title>Pump Agent · Lamport Converter</title>
+        <meta property="og:title" content="Pump Agent · Lamport Converter" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-12">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-12">
         Lamport Converter
       </h1>
 

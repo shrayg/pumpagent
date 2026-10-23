@@ -15,19 +15,14 @@ const FundWallets = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Fund Wallets</title>
-        <link rel="canonical" href="https://pumpagent.com/https/fund-wallets" />
-        <meta property="og:title" content="PumpAgent - Fund Wallets" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/fund-wallets"
-        />
+        <title>Pump Agent · Fund Wallets</title>
+        <meta property="og:title" content="Pump Agent · Fund Wallets" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Fund Wallets
       </h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Fund up to 50 wallets in a single transaction.
       </div>
 

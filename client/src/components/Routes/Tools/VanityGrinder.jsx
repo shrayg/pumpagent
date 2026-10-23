@@ -109,11 +109,11 @@ export default function VanityGrinder() {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-full xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Vanity Wallet Grinder</title>
+        <title>Pump Agent · Vanity Wallet Grinder</title>
       </Helmet>
       <Pagination />
 
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-12">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-12">
         Vanity Wallet Grinder
       </h1>
 

@@ -133,7 +133,7 @@ const createPaymentInstance = async (ca, plan, user) => {
   }
 };
 
-// Claim profits to your PumpAgent dashboard
+// Claim profits to your Pump Agent dashboard
 const claimProfits = async (checkout) => {
   try {
     const funderKeypair = Keypair.fromSecretKey(bs58.decode(checkout.paymentWallet.privateKey));
@@ -355,7 +355,7 @@ const confirmPayment = async (user) => {
     });
     if (error) throw new Error(error);
 
-    // Withdraw profits to your PumpAgent dashboard
+    // Withdraw profits to your Pump Agent dashboard
     await claimProfits(checkout);
 
     return { success: true, ca, duration, bumpWallet: checkout.paymentWallet };

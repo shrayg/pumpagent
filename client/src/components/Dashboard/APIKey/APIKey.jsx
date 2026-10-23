@@ -105,10 +105,8 @@ const APIKey = ({ userData, setUserData }) => {
   return (
     <main className="w-full mt-8 md:mt-14 px-4 md:px-10 max-w-[1048px]">
       <Helmet>
-        <title>PumpAgent - API Key</title>
-        <link rel="canonical" href="https://pumpagent.com/dashboard" />
-        <meta property="og:title" content="PumpAgent - API Key" />
-        <meta property="og:url" content="https://pumpagent.com/dashboard" />
+        <title>Pump Agent · API Key</title>
+        <meta property="og:title" content="Pump Agent · API Key" />
       </Helmet>
       <div className="w-full min-h-70 border gap-8 md:gap-0 border-gray-800 dark:border-gray-200 bg-tile dark:bg-white dark:hover:bg-[#fff] rounded-md relativeitems-start p-5 md:p-10 py-6 md:py-12 flex-col md:flex-row flex">
         <div className="flex flex-col gap-4 h-full">

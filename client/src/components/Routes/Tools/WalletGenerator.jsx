@@ -88,19 +88,11 @@ const WalletGenerator = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-full xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Wallet Generator</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/tools/wallet-generator"
-        />
-        <meta property="og:title" content="PumpAgent - Wallet Generator" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/tools/wallet-generator"
-        />
+        <title>Pump Agent · Wallet Generator</title>
+        <meta property="og:title" content="Pump Agent · Wallet Generator" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-12">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-12">
         Wallet Generator
       </h1>
 

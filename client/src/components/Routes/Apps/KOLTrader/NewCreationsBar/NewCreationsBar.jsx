@@ -316,7 +316,7 @@ const NewCreationsBar = ({
         />
       )}
       <div
-        className={`flex items-center h-[70px] absolute z-[9000] top-0 transform left-45 w-[55%] lg:w-[70%] whitespace-nowrap select-none ${
+        className={`flex items-center h-16 absolute z-[9000] top-0 transform left-45 w-[55%] lg:w-[70%] whitespace-nowrap select-none ${
           !user ? "cursor-not-allowed" : ""
         }`}
       >

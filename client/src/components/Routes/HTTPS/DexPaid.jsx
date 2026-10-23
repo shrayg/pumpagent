@@ -16,14 +16,12 @@ const DexPaid = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Dex Paid</title>
-        <link rel="canonical" href="https://pumpagent.com/https/dex-paid" />
-        <meta property="og:title" content="PumpAgent - Dex Paid" />
-        <meta property="og:url" content="https://pumpagent.com/https/dex-paid" />
+        <title>Pump Agent · Dex Paid</title>
+        <meta property="og:title" content="Pump Agent · Dex Paid" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">Dex Paid</h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">Dex Paid</h1>
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Check if a payment was made to Dexscreener for a token's profile (e.g.,
         banner image and other features).
       </div>

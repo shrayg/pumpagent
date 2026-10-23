@@ -1,56 +1,47 @@
 import { useState } from "react";
-import { FaRegCopy } from "react-icons/fa6";
+import { Check, Copy } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  nightOwl,
-  prism,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { copy } from "../../utils/functions";
-import { useDarkMode } from "../../utils/darkmodecontext";
+import codeTheme from "../../utils/codeTheme";
 
-const CodeBlock = ({
-  language,
-  clientCode,
-  serverCode,
-  hasToggle,
-  view,
-  setView,
-}) => {
-  const { darkMode } = useDarkMode();
+const COPIED_RESET_MS = 1500;
 
-  const isReact =
-    language === "React.js" ? "javascript" : language.toLowerCase();
-  const code =
-    view === "client" || language === "React.js" ? clientCode : serverCode;
+const CodeBlock = ({ language, clientCode, serverCode, hasToggle, view, setView }) => {
+  const [copied, setCopied] = useState(false);
 
-  const toggleButtonStyle = (mode) =>
-    `px-3 py-1 rounded-md text-sm font-semibold cursor-pointer select-none ${
-      view === mode
-        ? darkMode
-          ? "bg-gray-800 text-white"
-          : "bg-white text-black"
-        : darkMode
-        ? "text-gray-400 hover:text-black"
-        : "text-gray-600 hover:text-white"
+  const highlightLanguage = language === "React.js" ? "javascript" : language.toLowerCase();
+  const code = view === "client" || language === "React.js" ? clientCode : serverCode;
+
+  const handleCopy = () => {
+    copy(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), COPIED_RESET_MS);
+  };
+
+  const tabClass = (mode) =>
+    `px-2.5 h-7 rounded-md text-[12.5px] font-medium cursor-pointer transition-colors ${
+      view === mode ? "bg-surface-3 text-fg" : "text-fg-subtle hover:text-fg"
     }`;
 
   return (
-    <div className="bg-[#101010] dark:bg-gray-100 border border-[#1e2939] rounded-md flex flex-col">
-      <div className="border-b border-[#1e2939] p-1 pl-4 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <div className="dark:text-black text-white font-medium select-none">
-            <span>{language}</span>
-          </div>
+    <div className="rounded-lg border border-line bg-surface overflow-hidden flex flex-col">
+      <div className="flex items-center justify-between h-11 pl-4 pr-2 border-b border-line bg-surface-2">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-[12px] text-fg-muted select-none">{language}</span>
           {hasToggle && (
-            <div className="flex gap-2">
+            <div className="flex gap-1 p-0.5 rounded-lg border border-line bg-canvas" role="tablist">
               <button
-                className={toggleButtonStyle("client")}
+                role="tab"
+                aria-selected={view === "client"}
+                className={tabClass("client")}
                 onClick={() => setView("client")}
               >
                 Client
               </button>
               <button
-                className={toggleButtonStyle("server")}
+                role="tab"
+                aria-selected={view === "server"}
+                className={tabClass("server")}
                 onClick={() => setView("server")}
               >
                 Server
@@ -60,26 +51,21 @@ const CodeBlock = ({
         </div>
 
         <button
-          className="p-2 cursor-pointer hover:bg-[rgba(15,36,22,0.68)] rounded-md group transform active:scale-90"
-          onClick={() => copy(code)}
+          className="flex items-center gap-1.5 h-8 px-2.5 rounded-md text-[12px] text-fg-subtle hover:text-fg hover:bg-surface-3 cursor-pointer transition-colors"
+          onClick={handleCopy}
+          aria-label="Copy code"
         >
-          <FaRegCopy className="text-[16px] text-gray-600 group-hover:text-white group-active:text-green-500" />
+          {copied ? <Check className="w-3.5 h-3.5 text-accent" /> : <Copy className="w-3.5 h-3.5" />}
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
 
       <SyntaxHighlighter
-        language={isReact}
-        style={darkMode ? prism : nightOwl}
-        customStyle={{
-          backgroundColor: darkMode ? "#f6f3f4" : "#101010",
-          padding: "1rem",
-          margin: 0,
-          paddingTop: "0px",
-          // fontSize: "16px",
-          width: "100%",
-        }}
+        language={highlightLanguage}
+        style={codeTheme}
+        customStyle={{ margin: 0, padding: "16px 18px", background: "transparent" }}
       >
-        {code}
+        {code.trim()}
       </SyntaxHighlighter>
     </div>
   );

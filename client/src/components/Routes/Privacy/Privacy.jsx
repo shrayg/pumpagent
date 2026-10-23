@@ -5,7 +5,7 @@ const Privacy = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Pagination />
-      <h1 className="text-6xl dark:text-black pb-8">Privacy</h1>
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">Privacy</h1>
 
       <div className="text-[18px] pb-12">
         <p className="mb-4">Last updated: May 25, 2025</p>
@@ -52,7 +52,7 @@ const Privacy = () => {
             <p>
               <strong>Company</strong> (referred to as either &quot;the
               Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;
-              in this Agreement) refers to PumpAgent.
+              in this Agreement) refers to Pump Agent.
             </p>
           </li>
           <li className="mb-4">
@@ -100,7 +100,7 @@ const Privacy = () => {
           </li>
           <li className="mb-4">
             <p>
-              <strong>Website</strong> refers to PumpAgent, accessible from{" "}
+              <strong>Website</strong> refers to Pump Agent, accessible from{" "}
               <u>
                 <a
                   href="https://www.pumpagent.com/"

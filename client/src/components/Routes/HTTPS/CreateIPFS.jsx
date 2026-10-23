@@ -19,17 +19,12 @@ const CreateIPFS = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Create IPFS</title>
-        <link rel="canonical" href="https://pumpagent.com/https/create-ipfs" />
-        <meta property="og:title" content="PumpAgent - Create IPFS" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/create-ipfs"
-        />
+        <title>Pump Agent · Create IPFS</title>
+        <meta property="og:title" content="Pump Agent · Create IPFS" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">Create IPFS</h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">Create IPFS</h1>
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Create an Interplanetary File System storage object, which can be used
         to launch your own token. Store an image, description and more metadata.
       </div>

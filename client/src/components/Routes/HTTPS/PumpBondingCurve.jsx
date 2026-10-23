@@ -17,22 +17,14 @@ const PumpBondingCurve = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Bonding Curve</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/pump-bonding-curve"
-        />
-        <meta property="og:title" content="PumpAgent - Pump Bonding Curve" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-bonding-curve"
-        />
+        <title>Pump Agent · Pump Bonding Curve</title>
+        <meta property="og:title" content="Pump Agent · Pump Bonding Curve" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Bonding Curve
       </h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Query any pump.fun token that has not yet migrated to a decentralized
         exchange, and retrieve its bonding curve progress.
       </div>

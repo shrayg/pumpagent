@@ -21,7 +21,7 @@ const apprenticeFeeData = [
     name: "Claim Profits",
     route: "/claim-profits",
     fee: "None",
-    description: "Securely transfer profits to your PumpAgent Dashboard.",
+    description: "Securely transfer profits to your Pump Agent Dashboard.",
     limit: "5K/Hour",
   },
   {
@@ -170,7 +170,7 @@ const alchemistFeeData = [
     name: "Claim Profits",
     route: "/claim-profits",
     fee: "None",
-    description: "Securely transfer profits to your PumpAgent Dashboard.",
+    description: "Securely transfer profits to your Pump Agent Dashboard.",
     limit: "Unlimited",
   },
   {
@@ -309,39 +309,37 @@ const Fees = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Fees</title>
-        <link rel="canonical" href="https://pumpagent.com/fees" />
-        <meta property="og:title" content="PumpAgent - Fees" />
-        <meta property="og:url" content="https://pumpagent.com/fees" />
+        <title>Pump Agent · Fees</title>
+        <meta property="og:title" content="Pump Agent · Fees" />
       </Helmet>
       <Pagination />
-      <h1 className="text-6xl dark:text-black pb-8">Fees</h1>
-      <p className="text-[20px] font-light leading-7 mb-8 dark:text-black">
-        Usage of the PumpAgent platform is completely free of charge, sign up for
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">Fees</h1>
+      <p className="text-[17px] font-normal leading-7 text-fg-muted mb-8 dark:text-black">
+        Usage of the Pump Agent platform is completely free of charge, sign up for
         an account and start building right away.
       </p>
-      <div className="text-[20px] font-light leading-7 mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-8 dark:text-black">
         To support the costs of running our platform — including servers,
         infrastructure, and data providers — we charge standard fees. We're
         committed to transparency, so here’s a clear breakdown of how our fee
         structure works.
       </div>
-      <p className="text-[20px] font-light leading-7 mb-8 dark:text-black">
+      <p className="text-[17px] font-normal leading-7 text-fg-muted mb-8 dark:text-black">
         We have two tiers:{" "}
         <span className="text-greener font-bold">Apprentice</span> and{" "}
         <span className="text-purple-500 font-bold">Alchemist</span>.<br />
         Apprentice tier is free for life, with slightly increased platform fees
         and reduced request limits. Unlock lifetime access to the Alchemist tier
         from your dashboard with a one-time payment of $199. Enjoy 30% reduced
-        platform fees, increased rate limits, priority Discord support, higher
+        platform fees, increased rate limits, priority technical support, higher
         referrals rewards and more.
       </p>
-      <p className="text-[20px] font-light leading-7 mb-8 dark:text-black">
+      <p className="text-[17px] font-normal leading-7 text-fg-muted mb-8 dark:text-black">
         Optional fees earned through our API's are paid out in SOL. Referral
         payouts are done in USDC.
       </p>
       <p className="text-[20px] leading-7 dark:text-black font-bold text-center">
-        Claiming profits from your PumpAgent dashboard is free of charge.
+        Claiming profits from your Pump Agent dashboard is free of charge.
       </p>
 
       <div className="flex flex-col justify-center items-center gap-3 my-8 border border-gray-900 w-min mx-auto p-3 rounded-xl">

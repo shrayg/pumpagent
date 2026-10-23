@@ -17,22 +17,14 @@ const GenerateWallets = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Generate Wallets</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/generate-wallets"
-        />
-        <meta property="og:title" content="PumpAgent - Generate Wallets" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/generate-wallets"
-        />
+        <title>Pump Agent · Generate Wallets</title>
+        <meta property="og:title" content="Pump Agent · Generate Wallets" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Generate Wallets
       </h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Generate up to 1,000 Solana wallets (public key & private key) per
         request. These wallets can be used in your scripts or imported into
         providers (I.e. Phantom).

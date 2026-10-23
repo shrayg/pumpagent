@@ -16,22 +16,17 @@ const ClaimProfits = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Claim Profits</title>
-        <link rel="canonical" href="https://pumpagent.com/https/claim-profits" />
-        <meta property="og:title" content="PumpAgent - Claim Profits" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/claim-profits"
-        />
+        <title>Pump Agent · Claim Profits</title>
+        <meta property="og:title" content="Pump Agent · Claim Profits" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Claim Profits
       </h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Helper route which is useful to embed into applications you build, where
         you don't want to manage payment wallets, but instead prefer to collect
-        earnings safely into your PumpAgent Fee Earnings dashboard.
+        earnings safely into your Pump Agent Fee Earnings dashboard.
       </div>
 
       <div className="flex flex-col lg:flex-row w-full justify-center gap-2 mt-5 md:mt-10">

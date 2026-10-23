@@ -318,7 +318,7 @@ const KOLTrader = () => {
   return (
     <div className="flex h-full flex-col w-full mx-auto">
       <div className="flex w-full h-full opacity-100 xl:hidden justify-center items-center text-[12px] text-gray-500">
-        <span>PumpAgent DEX is only availabe on desktop.</span>
+        <span>Pump Agent DEX is only available on desktop.</span>
       </div>
       <div className="h-full flex-col w-full mx-auto hidden xl:flex">
         {/* <NewCreationsBar

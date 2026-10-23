@@ -16,20 +16,12 @@ const KOLTrades = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - KOL Trades</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/websocket/kol-trades"
-        />
-        <meta property="og:title" content="PumpAgent - KOL Trades" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/websocket/kol-trades"
-        />
+        <title>Pump Agent · KOL Trades</title>
+        <meta property="og:title" content="Pump Agent · KOL Trades" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">KOL Trades</h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">KOL Trades</h1>
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Receive information when one of 200+ crypto key opinion leaders makes a
         trade on pump.fun.
       </div>

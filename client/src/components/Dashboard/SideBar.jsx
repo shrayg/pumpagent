@@ -1,47 +1,39 @@
-import { TbDashboardFilled } from "react-icons/tb";
-import { FaKey } from "react-icons/fa";
-import { MdAttachMoney } from "react-icons/md";
-import { TbChartBar } from "react-icons/tb";
-import { GiReceiveMoney } from "react-icons/gi";
+import { BadgeDollarSign, Gauge, KeyRound, LayoutDashboard, Users } from "lucide-react";
 
-const SideBar = ({ menu, setMenu }) => {
-  const menuItems = [
-    { label: "Dashboard", icon: <TbDashboardFilled /> },
-    { label: "API Key", icon: <FaKey /> },
-    {
-      label: "Fee Earnings",
-      icon: <MdAttachMoney className="text-2xl mr-[-2px]" />,
-    },
-    {
-      label: "Referrals",
-      icon: <GiReceiveMoney className="text-lg mr-[-2px]" />,
-    },
-    {
-      label: "Tiers",
-      icon: <TbChartBar className="text-lg mr-[-2px]" />,
-    },
-  ];
+const menuItems = [
+  { label: "Dashboard", icon: LayoutDashboard },
+  { label: "API Key", icon: KeyRound },
+  { label: "Fee Earnings", icon: BadgeDollarSign },
+  { label: "Referrals", icon: Users },
+  { label: "Tiers", icon: Gauge },
+];
 
-  return (
-    <aside className="min-w lg:min-w-[250px] border-r border-gray-900 flex flex-col pt-6 md:pt-12.5">
-      <ul className="text-white dark:text-black text-[14px] p-2 transition sticky top-19 left-0 flex flex-col gap-2 select-none">
-        {menuItems.map((item) => (
-          <li
-            key={item.label}
-            className={`p-2 py-4 rounded-md pl-4 cursor-pointer flex justify-start items-center gap-2 ${
-              menu === item.label
-                ? "bg-[rgba(10,77,21,0.65)] dark:bg-[#22d300] "
-                : "hover:bg-[rgb(3,21,6)] dark:hover:bg-[rgba(147,236,181,0.59)]"
-            }`}
-            onClick={() => setMenu(item.label)}
-          >
-            <span className="text-[20px] w-[28px]">{item.icon}</span>
-            <span className="hidden lg:inline">{item.label}</span>
+const SideBar = ({ menu, setMenu }) => (
+  <aside className="shrink-0 lg:w-[240px] border-r border-line" aria-label="Dashboard">
+    <ul className="sticky top-16 flex flex-col gap-0.5 p-3 pt-8 text-[14px] font-medium select-none">
+      {menuItems.map((item) => {
+        const { label } = item;
+        const active = menu === label;
+        return (
+          <li key={label}>
+            <button
+              className={`w-full flex items-center gap-3 rounded-md px-3 py-2 cursor-pointer transition-colors ${
+                active
+                  ? "bg-accent-soft text-accent"
+                  : "text-fg-muted hover:text-fg hover:bg-surface-2"
+              }`}
+              onClick={() => setMenu(label)}
+              aria-current={active ? "page" : undefined}
+              title={label}
+            >
+              <item.icon className="w-4 h-4 shrink-0" />
+              <span className="hidden lg:inline">{label}</span>
+            </button>
           </li>
-        ))}
-      </ul>
-    </aside>
-  );
-};
+        );
+      })}
+    </ul>
+  </aside>
+);
 
 export default SideBar;

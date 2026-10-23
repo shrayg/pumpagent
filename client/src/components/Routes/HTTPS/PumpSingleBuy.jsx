@@ -16,22 +16,14 @@ const PumpSingleBuy = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Single Buy</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/pump-single-buy"
-        />
-        <meta property="og:title" content="PumpAgent - Pump Single Buy" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-single-buy"
-        />
+        <title>Pump Agent · Pump Single Buy</title>
+        <meta property="og:title" content="Pump Agent · Pump Single Buy" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Single Buy
       </h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Buy a pump.fun token from the bonding curve and optionally set up fees
         to be sent to your dashboard.
       </div>

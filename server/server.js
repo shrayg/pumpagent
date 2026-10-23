@@ -31,7 +31,6 @@ import confirmTierPaymentRouter from "./routes/confirmtierpayment.js";
 import getTierSolPriceRouter from "./routes/gettiersolprice.js";
 import userWithdrawSolRouter from "./routes/userwithdrawsol.js";
 import userWithdrawUSDCRouter from "./routes/userwithdrawusdc.js";
-import updateDiscordProfileRouter from "./routes/updatediscordprofile.js";
 import pumpTokenInfoRouter from "./routes/pumptokeninfo.js";
 import landingInfoRouter from "./routes/landing.js";
 import { loadTotalRequests } from "./utils/requests.js";
@@ -123,12 +122,6 @@ app.use(
   confirmTierPaymentRouter
 );
 app.use("/tier-sol-price", checkApiKey, reqLimit(), getTierSolPriceRouter);
-app.use(
-  "/update-discord-profile",
-  checkApiKey,
-  reqLimit(),
-  updateDiscordProfileRouter
-);
 app.use("/pump-chart", checkApiKey, reqLimit(), candlesticksRouter);
 app.use("/pumpswap-chart", reqLimit(), pumpswapCandlesRouter);
 app.use("/create-koltrade-wallet", reqLimit(), createKolTradeWalletRouter);

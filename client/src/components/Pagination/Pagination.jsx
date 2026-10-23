@@ -1,5 +1,5 @@
-import { IoMdHome } from "react-icons/io";
-import { useLocation, useNavigate } from "react-router-dom";
+import { ChevronRight, House } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const paginationMap = {
   "/": { base: "", sub: "Home" },
@@ -51,30 +51,25 @@ const paginationMap = {
 };
 
 const Pagination = () => {
-  const navigate = useNavigate();
-  const search = useLocation().search;
-  const location = useLocation().pathname;
-  const { base, sub } = paginationMap[location] || {};
+  const { pathname, search } = useLocation();
+  const { base, sub } = paginationMap[pathname] || {};
+  const crumbs = [base === "HTTPS" ? "Docs" : base, sub].filter(Boolean);
+
   return (
-    <div
-      className={`text-white dark:text-black text-[12px]  md:pt-10  py-5 md:py-10 lg:pb-5 flex justify-start items-center gap-2 z-200 select-none mr-auto`}
+    <nav
+      className="flex items-center gap-1.5 pt-10 pb-6 text-[13px] font-normal text-fg-subtle select-none"
+      aria-label="Breadcrumb"
     >
-      <IoMdHome
-        className="text-[24px] text-gray-400  dark:text-black cursor-pointer"
-        onClick={() => navigate(`/${search}`)}
-      />
-      {base && (
-        <span className="text-gray-400 cursor-pointer dark:text-black hover:text-white">
-          {base}
+      <Link to={`/${search}`} className="hover:text-fg transition-colors" aria-label="Home">
+        <House className="w-4 h-4" />
+      </Link>
+      {crumbs.map((crumb, index) => (
+        <span key={crumb} className="flex items-center gap-1.5">
+          <ChevronRight className="w-3.5 h-3.5" />
+          <span className={index === crumbs.length - 1 ? "text-fg-muted" : ""}>{crumb}</span>
         </span>
-      )}
-      {base && sub && <span className=" dark:text-black">/</span>}
-      {sub && (
-        <span className="text-gray-400 cursor-default dark:text-black">
-          {sub}
-        </span>
-      )}
-    </div>
+      ))}
+    </nav>
   );
 };
 

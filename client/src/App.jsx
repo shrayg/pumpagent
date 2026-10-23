@@ -6,6 +6,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Footer from "./components/Footer/Footer";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import { Helmet } from "react-helmet";
+import { APP_ROUTES, isDocsRoute } from "./utils/navigation";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./components/Routes/Home/Home"));
@@ -111,54 +112,29 @@ const Bundler = lazy(() => import("./components/Routes/Apps/Bundler/Bundler"));
 const Bump = lazy(() => import("./components/Routes/Apps/Bump/Bump"));
 
 const App = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const [navOpen, setNavOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState(
-    localStorage.getItem("activeMenu") || "Developer"
-  );
 
-  const path = location.pathname;
-  const dashboard = path === "/dashboard";
-  const kolTrader =
-    path === "/dex" ||
-    path === "/bundler" ||
-    path === "/dexv2" ||
-    path === "/bump";
-  const showForDashboard = dashboard && window.innerWidth < 1200 && navOpen;
-  const isLogin = path === "/signin";
-  const homepage = !dashboard && !kolTrader;
+  const isAppRoute = APP_ROUTES.includes(pathname);
+  const docked = isDocsRoute(pathname);
 
   return (
-    <div className="bg-black dark:bg-white text-6xl font-bold font-regular min-h-screen flex flex-col">
+    <div className="bg-canvas text-fg text-6xl font-medium font-sans min-h-screen flex flex-col">
       <Helmet>
-        <title>PumpAgent - Pump.fun API Toolkit | Build Faster</title>
-        <link rel="canonical" href="https://pumpagent.com" />
+        <title>Pump Agent · The pump.fun API for builders and traders</title>
         <meta
           name="description"
-          content="Build Solana pump.fun applications with PumpAgent's API toolkit. Generate wallets, create tokens, bump visibility, and access real-time data feeds. Free developer tools."
+          content="Pump Agent is a Solana API and app suite for pump.fun: launch and bundle tokens, trade on pump.fun and DEX pools, manage wallets, and stream market data."
         />
-        <meta
-          name="keywords"
-          content="solana api, pump.fun api, solana toolkit, crypto api, blockchain development, solana wallet generator, token bump bot"
-        />
-        <meta property="og:title" content="PumpAgent - Pump.fun API Toolkit" />
-        <meta property="og:image" content="https://pumpagent.com/Social.png" />
-        <meta property="og:site_name" content="PumpAgent" />
+        <meta property="og:title" content="Pump Agent · The pump.fun API" />
+        <meta property="og:site_name" content="Pump Agent" />
         <meta
           property="og:description"
-          content="Build Solana pump.fun applications with PumpAgent's comprehensive API toolkit. Generate wallets, create tokens, and access real-time data."
+          content="Launch, bundle, and trade pump.fun tokens from one API, plus a trading terminal, launch bundler, and bump bot."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pumpagent.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="PumpAgent - Pump.fun API Toolkit" />
-        <meta
-          name="twitter:description"
-          content="Build powerful Solana pump.fun applications with our free API toolkit. Generate wallets, bump tokens, real-time data feeds."
-        />
-        <meta name="twitter:site" content="@PumpAgent" />
-        <meta name="twitter:creator" content="@PumpAgent" />
-        <meta name="twitter:image" content="https://pumpagent.com/Social.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Pump Agent · The pump.fun API" />
       </Helmet>
 
       <CookieBanner />
@@ -166,20 +142,13 @@ const App = () => {
       <ScrollToTop />
 
       <div className="flex flex-col flex-1 w-full">
-        <div className="flex flex-1 pt-[70px]">
-          {(navOpen || homepage || showForDashboard) && !isLogin && (
-            <SideBar
-              navOpen={navOpen}
-              setNavOpen={setNavOpen}
-              activeMenu={activeMenu}
-              setActiveMenu={setActiveMenu}
-            />
-          )}
+        <div className="flex flex-1 pt-16">
+          <SideBar navOpen={navOpen} docked={docked} />
 
-          <main className="flex-1 flex flex-col pt-0 border-l border-gray-900 dark:border-gray-200">
-            <Suspense fallback={<div className="text-white p-4"></div>}>
+          <main className="flex-1 min-w-0 flex flex-col">
+            <Suspense fallback={<div className="p-4" />}>
               <Routes>
-                <Route path="/" element={<Home activeMenu={activeMenu} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/signin" element={<SignIn />} />
 
@@ -304,7 +273,7 @@ const App = () => {
             </Suspense>
           </main>
         </div>
-        {!kolTrader && <Footer />}
+        {!isAppRoute && <Footer />}
       </div>
     </div>
   );

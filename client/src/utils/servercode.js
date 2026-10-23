@@ -158,8 +158,8 @@ import axios from "axios";
 const API_KEY = process.env.PUMPAGENT_API_KEY;
 const payload = {
   image: imageString, // From the example below (Base64 data url)
-  name: "PumpKit Memecoin",
-  symbol: "PKIT",
+  name: "Agent Memecoin",
+  symbol: "AGENT",
   description: "The greatest toolkit to start shipping!",
   twitter: "https://@pumpkit_memecoin",
   telegram: "https://t.me/pumpkit_memecoin",
@@ -702,8 +702,8 @@ const developer = Keypair.fromSecretKey(bs58.decode(DEVELOPER_PRIVATE_KEY));
 const payload = {
   developer: developer.publicKey,
   solIn: "0.1",
-  name: "PumpKit Meme",
-  symbol: "PKIT",
+  name: "Agent Meme",
+  symbol: "AGENT",
   uri: "https://ipfs.io/ipfs/QmWoAXuw4wcuuQScK7New3Qm63Xt5YoYysmHda9Rr8L3cx"
 };
 //////////////////////////////// END ////////////////////////////////////////
@@ -765,8 +765,8 @@ const lut = "Enter Lookup Table Address";
 const payload = {
   funderPubKey: funder.publicKey,
   sanitizedWallets,
-  name: "PumpKit Meme",
-  symbol: "PKIT",
+  name: "Agent Meme",
+  symbol: "AGENT",
   lut,
   uri: "https://ipfs.io/ipfs/QmWoAXuw4wcuuQScK7New3Qm63Xt5YoYysmHda9Rr8L3cx"
 };

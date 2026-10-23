@@ -1,6 +1,6 @@
-# PumpAgent - Pump.fun API Toolkit
+# Pump Agent - Pump.fun API Toolkit
 
-**PumpAgent** is a comprehensive, beginner-friendly toolkit for building Solana applications, specifically focused on Pump.fun token operations. It provides a complete suite of APIs, WebSocket data feeds, and web applications for token creation, trading, analytics, and automation on the Solana blockchain.
+**Pump Agent** is a comprehensive, beginner-friendly toolkit for building Solana applications, specifically focused on Pump.fun token operations. It provides a complete suite of APIs, WebSocket data feeds, and web applications for token creation, trading, analytics, and automation on the Solana blockchain.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-PumpAgent provides developers and traders with:
+Pump Agent provides developers and traders with:
 
 - **60+ REST API Endpoints** for Pump.fun operations, wallet management, DEX trading, and more
 - **Real-time WebSocket Feeds** for token creation, trades, migrations, and KOL tracking
@@ -237,7 +237,6 @@ pumpagent/
 - `GET /tier-sol-price` - Get tier pricing in SOL
 - `POST /user-withdraw-sol` - Withdraw SOL
 - `POST /user-withdraw-usdc` - Withdraw USDC
-- `POST /update-discord-profile` - Update Discord profile
 - `POST /reclaim-rent` - Reclaim account rent
 - `POST /reclaim-sol` - Reclaim SOL from closed accounts
 
@@ -718,7 +717,7 @@ For issues, questions, or contributions:
 - Solana Foundation for blockchain infrastructure
 - Helius for RPC and WebSocket services
 - Raydium and Jupiter for DEX integration
-- All contributors and users of PumpAgent
+- All contributors and users of Pump Agent
 
 ---
 

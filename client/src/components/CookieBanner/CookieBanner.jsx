@@ -59,31 +59,27 @@ const CookieBanner = () => {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 bg-tile w-75 z-5000 rounded-md border border-gray-800 flex flex-col justify-start items-start p-4 transition-opacity duration-300 ease-in-out ${
-        showBanner
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+      className={`fixed bottom-4 right-4 left-4 sm:left-auto sm:w-[360px] z-[5000] rounded-xl border border-line bg-surface/95 backdrop-blur shadow-2xl shadow-black/60 p-4 font-normal transition-opacity duration-300 ease-in-out ${
+        showBanner ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
       aria-live="polite"
       role="dialog"
-      aria-label="Cookie consent banner"
+      aria-label="Cookie consent"
     >
-      <span className="text-[16px] text-gray-300 text-center">
-        We use cookies to improve our website's performance and UX. By using our
-        website and our products, you agree to our use of cookies.
-      </span>
-      <div className="flex justify-between w-full items-center mt-4">
+      <p className="text-[13px] leading-5 text-fg-muted">
+        We use analytics cookies to understand how Pump Agent is used and
+        improve it.
+      </p>
+      <div className="flex justify-end gap-2 mt-3">
         <button
-          className="text-[14px] text-white bg-gray-500 hover:bg-gray-400 hover:opacity-100 opacity-80 p-2 rounded-sm cursor-pointer"
+          className="h-8 px-3 rounded-md text-[13px] font-medium text-fg-muted hover:text-fg hover:bg-surface-3 cursor-pointer transition-colors"
           onClick={handleDecline}
-          aria-label="Decline cookies"
         >
           Decline
         </button>
         <button
-          className="text-[14px] text-white bg-green-900 hover:bg-green-700 transition p-2 rounded-sm cursor-pointer"
+          className="h-8 px-3 rounded-md text-[13px] font-semibold bg-accent text-accent-ink hover:bg-accent-hover cursor-pointer transition-colors"
           onClick={handleAccept}
-          aria-label="Accept cookies"
         >
           Accept
         </button>

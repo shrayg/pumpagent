@@ -17,22 +17,14 @@ const PumpTokenInfo = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Token Info</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/pump-token-info"
-        />
-        <meta property="og:title" content="PumpAgent - Pump Token Info" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-token-info"
-        />
+        <title>Pump Agent · Pump Token Info</title>
+        <meta property="og:title" content="Pump Agent · Pump Token Info" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Token Info
       </h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Query any pump.fun token address to receive a comprehensive list of
         information such as the image, marketcap and more.
       </div>

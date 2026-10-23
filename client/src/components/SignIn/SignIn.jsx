@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import supabase from "../../utils/supabase";
 import Spinner from "../../assets/Spinner.svg";
 import { Helmet } from "react-helmet";
+import { LogoMark } from "../Brand/Logo";
 
 const SignIn = () => {
   const params = new URLSearchParams(window.location.search);
@@ -102,69 +103,86 @@ const SignIn = () => {
     }
   };
 
-  return (
-    <div className="h-full flex items-center justify-center bg-black text-white">
-      <Helmet>
-        <title>PumpAgent - Sign In</title>
-        <link rel="canonical" href="https://pumpagent.com/signin" />
-        <meta property="og:title" content="PumpAgent - Sign In" />
-        <meta property="og:url" content="https://pumpagent.com/signin" />
-      </Helmet>
-      <form className="w-[300px] text-[12px] border border-gray-800 dark:border-gray-200 bg-tile dark:bg-white rounded-md p-4 flex relative flex-col items-center gap-8 mb-20">
-        <h2 className="text-2xl font-bold mb-2 text-center">
-          {isLogin ? "Sign In" : "New User"}
-        </h2>
+  const inputClass =
+    "w-full h-10 px-3 rounded-lg border border-line bg-canvas text-[14px] text-fg placeholder:text-fg-subtle focus:outline-none focus:border-accent-line focus:ring-2 focus:ring-accent-soft transition";
 
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full p-2 border-b border-b-gray-600 text-white focus:outline-none focus:border-b-green-500"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full p-2 border-b border-b-gray-600 text-white focus:outline-none focus:border-b-green-500"
-          value={password}
-          ref={passwordRef}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {!isLogin && (
-          <div className="relative w-full">
-            {referral && (
-              <span className="text-[12px] text-gray-600 absolute right-0 top-2 select-none">
-                Referral
-              </span>
-            )}
+  return (
+    <div className="relative flex-1 flex items-center justify-center px-4 py-16 font-normal">
+      <Helmet>
+        <title>Pump Agent · Sign in</title>
+      </Helmet>
+      <div className="absolute inset-0 hero-glow pointer-events-none" />
+      <form
+        className="relative w-full max-w-[380px] rounded-2xl border border-line bg-surface p-8 shadow-2xl shadow-black/50"
+        onSubmit={(e) => (isLogin ? handleLogin(e) : handleRegister(e))}
+      >
+        <LogoMark className="w-9 h-9" />
+        <h1 className="mt-6 text-2xl text-fg">
+          {isLogin ? "Sign in to Pump Agent" : "Create your account"}
+        </h1>
+        <p className="mt-2 text-[14px] text-fg-muted">
+          {isLogin
+            ? "Welcome back. Enter your details to continue."
+            : "Free forever on the Apprentice tier. No email needed."}
+        </p>
+
+        <div className="mt-7 flex flex-col gap-4">
+          <label className="flex flex-col gap-1.5">
+            <span className="text-[13px] font-medium text-fg-muted">Username</span>
             <input
               type="text"
-              placeholder="Referral name"
-              className={`w-full p-2 border-b border-b-gray-600 text-gray-400 focus:outline-none focus:border-b-green-500 ${
-                ref ? "pointer-events-none" : ""
-              }`}
-              value={referral}
-              onChange={(e) => setReferral(e.target.value)}
+              autoComplete="username"
+              placeholder="yourname"
+              className={inputClass}
+              value={username}
+              onChange={handleUsernameChange}
             />
-          </div>
-        )}
+          </label>
+          <label className="flex flex-col gap-1.5">
+            <span className="text-[13px] font-medium text-fg-muted">Password</span>
+            <input
+              type="password"
+              autoComplete={isLogin ? "current-password" : "new-password"}
+              placeholder="••••••••"
+              className={inputClass}
+              value={password}
+              ref={passwordRef}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          {!isLogin && (
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[13px] font-medium text-fg-muted">
+                Referral <span className="text-fg-subtle font-normal">(optional)</span>
+              </span>
+              <input
+                type="text"
+                placeholder="Referrer's username"
+                className={`${inputClass} ${ref ? "pointer-events-none text-fg-muted" : ""}`}
+                value={referral}
+                readOnly={!!ref}
+                onChange={(e) => setReferral(e.target.value)}
+              />
+            </label>
+          )}
+        </div>
+
         <button
-          className=" bg-green-900 hover:bg-green-700 py-3 rounded font-semibold cursor-pointer w-[266px] max-h-[36px] flex justify-center items-center"
-          onClick={(e) => (isLogin ? handleLogin(e) : handleRegister(e))}
-          disabled={loading ? true : false}
+          type="submit"
+          className="mt-7 w-full h-10 rounded-lg bg-accent text-accent-ink text-[14px] font-semibold hover:bg-accent-hover disabled:opacity-60 cursor-pointer flex justify-center items-center transition-colors"
+          disabled={loading}
         >
-          {loading && <img src={Spinner} alt="Spinner" />}
-          {!loading && <>{isLogin ? "Sign In" : "Sign Up"}</>}
+          {loading ? <img src={Spinner} alt="Loading" className="w-5 h-5" /> : isLogin ? "Sign in" : "Create account"}
         </button>
 
-        <p className="text-center text-sm mt-2">
+        <p className="mt-6 text-center text-[13px] text-fg-muted">
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
           <button
             onClick={toggleForm}
-            className="text-greener hover:underline cursor-pointer"
+            className="font-medium text-accent hover:text-accent-hover cursor-pointer"
             type="button"
           >
-            {isLogin ? "Sign up" : "Sign In"}
+            {isLogin ? "Sign up" : "Sign in"}
           </button>
         </p>
       </form>

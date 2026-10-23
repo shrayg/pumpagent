@@ -17,20 +17,12 @@ const PoolTrades = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pool Trades</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/websocket/pool-trades"
-        />
-        <meta property="og:title" content="PumpAgent - Pool Trades" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/websocket/pool-trades"
-        />
+        <title>Pump Agent · Pool Trades</title>
+        <meta property="og:title" content="Pump Agent · Pool Trades" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">Pool Trades</h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">Pool Trades</h1>
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Receive realtime trade data for a list of PumpSwap pool addresses.
       </div>
 

@@ -71,10 +71,8 @@ const Dashboard = () => {
         }`}
       >
         <Helmet>
-          <title>PumpAgent - Dashboard</title>
-          <link rel="canonical" href="https://pumpagent.com/dashboard" />
-          <meta property="og:title" content="PumpAgent - Dashboard" />
-          <meta property="og:url" content="https://pumpagent.com/dashboard" />
+          <title>Pump Agent · Dashboard</title>
+          <meta property="og:title" content="Pump Agent · Dashboard" />
         </Helmet>
         <SideBar menu={menu} setMenu={setMenu} />
         {menu === "Dashboard" && (

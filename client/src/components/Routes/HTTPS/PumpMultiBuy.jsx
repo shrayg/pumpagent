@@ -23,22 +23,14 @@ const PumpMultiBuy = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Multi Buy</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/pump-multi-buy"
-        />
-        <meta property="og:title" content="PumpAgent - Pump Multi Buy" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-multi-buy"
-        />
+        <title>Pump Agent · Pump Multi Buy</title>
+        <meta property="og:title" content="Pump Agent · Pump Multi Buy" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Multi Buy
       </h1>
-      <div className="text-[20px] font-light leading-7 md:mt-0 md:mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted md:mt-0 md:mb-8 dark:text-black">
         Pump Multi Buy allows you to buy a pump.fun token with up to 20 wallets
         in a single transaction. Optionally set up fees to be sent to your
         dashboard.

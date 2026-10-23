@@ -22,19 +22,14 @@ const PumpDumpAll = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Dump All</title>
-        <link rel="canonical" href="https://pumpagent.com/https/pump-dump-all" />
-        <meta property="og:title" content="PumpAgent - Pump Dump All" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-dump-all"
-        />
+        <title>Pump Agent · Pump Dump All</title>
+        <meta property="og:title" content="Pump Agent · Pump Dump All" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Dump All
       </h1>
-      <div className="text-[20px] font-light leading-7 mb-4 md:mb-8 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted mb-4 md:mb-8 dark:text-black">
         Pump Dump All lets you sell all tokens from up to 20 wallets—linked to a
         specific pump.fun contract address—in a single transaction. All proceeds
         are automatically consolidated and sent to a designated receiver wallet.

@@ -16,22 +16,14 @@ const PumpSingleSell = () => {
   return (
     <article className="pt-0 text-[12px] text-white px-5 md:px-10 lg:px-10 flex-1 w-[97vw] xl:max-w-[950px] lg:mx-auto">
       <Helmet>
-        <title>PumpAgent - Pump Single Sell</title>
-        <link
-          rel="canonical"
-          href="https://pumpagent.com/https/pump-single-sell"
-        />
-        <meta property="og:title" content="PumpAgent - Pump Single Sell" />
-        <meta
-          property="og:url"
-          content="https://pumpagent.com/https/pump-single-sell"
-        />
+        <title>Pump Agent · Pump Single Sell</title>
+        <meta property="og:title" content="Pump Agent · Pump Single Sell" />
       </Helmet>
       <Pagination />
-      <h1 className="text-5xl lg:text-6xl dark:text-black pb-8">
+      <h1 className="text-4xl lg:text-5xl text-fg dark:text-black pb-8">
         Pump Single Sell
       </h1>
-      <div className="text-[20px] font-light leading-7 dark:text-black">
+      <div className="text-[17px] font-normal leading-7 text-fg-muted dark:text-black">
         Sell pump.fun tokens to the bonding curve on a single wallet and
         optionally set up fees to be sent to your dashboard.
       </div>

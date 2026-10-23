@@ -57,7 +57,7 @@ const CreateWallet = ({
         ) : (
           <div className="w-full flex flex-col text-[12px]">
             <span className="text-center mb-6 text-white text-[14px]">
-              PumpAgent DEX Wallet
+              Pump Agent DEX Wallet
             </span>
 
             <span className="text-gray-500 pb-2 pl-2">Public Key</span>

@@ -507,16 +507,6 @@ const Bump = () => {
           </>
         )}
       </div>
-      <span className="text-gray-400 text-[12px] absolute left-2 bottom-2 select-none">
-        <span className="opacity-50">Issues? Report in the</span>{" "}
-        <span
-          className="opacity-100 text-greener cursor-pointer hover:underline"
-          onClick={() => window.open("https://discord.gg/WBmZss3jQq", "_blank")}
-        >
-          {" "}
-          Discord{" "}
-        </span>
-      </span>
     </div>
   );
 };
