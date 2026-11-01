@@ -4,7 +4,7 @@ import { LayoutDashboard, LogOut, Menu, X } from "lucide-react";
 import { AuthContext } from "../../utils/AuthProvider";
 import supabase from "../../utils/supabase";
 import Logo from "../Brand/Logo";
-import { appNav } from "../../utils/navigation";
+import { appNav, isDiscontinuedRoute } from "../../utils/navigation";
 
 const primaryLinks = [
   { label: "Docs", path: "/https/introduction", match: ["/https", "/websocket"] },
@@ -27,7 +27,8 @@ const TopNav = ({ navOpen, setNavOpen }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const hideLinks = ROUTES_WITH_HEADER_TICKER.includes(pathname);
+  const hideLinks =
+    ROUTES_WITH_HEADER_TICKER.includes(pathname) && !isDiscontinuedRoute(pathname);
 
   const handleSignOut = async () => {
     try {

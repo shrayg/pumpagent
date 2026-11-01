@@ -6,7 +6,12 @@ import SideBar from "./components/SideBar/SideBar";
 import Footer from "./components/Footer/Footer";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import { Helmet } from "react-helmet";
-import { APP_ROUTES, isDocsRoute } from "./utils/navigation";
+import DiscontinuedNotice from "./components/Discontinued/DiscontinuedNotice";
+import {
+  APP_ROUTES,
+  isDocsRoute,
+  isDiscontinuedRoute,
+} from "./utils/navigation";
 
 // Lazy-loaded components
 const Home = lazy(() => import("./components/Routes/Home/Home"));
@@ -117,6 +122,7 @@ const App = () => {
 
   const isAppRoute = APP_ROUTES.includes(pathname);
   const docked = isDocsRoute(pathname);
+  const discontinued = isDiscontinuedRoute(pathname);
 
   return (
     <div className="bg-canvas text-fg text-6xl font-medium font-sans min-h-screen flex flex-col">
@@ -146,131 +152,135 @@ const App = () => {
           <SideBar navOpen={navOpen} docked={docked} />
 
           <main className="flex-1 min-w-0 flex flex-col">
-            <Suspense fallback={<div className="p-4" />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/signin" element={<SignIn />} />
+            {discontinued ? (
+              <DiscontinuedNotice />
+            ) : (
+              <Suspense fallback={<div className="p-4" />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/signin" element={<SignIn />} />
 
-                {/* Apps */}
-                <Route path="/dex" element={<KOLTrader />} />
-                <Route path="/dexv2" element={<DexV2 />} />
-                <Route path="/bundler" element={<Bundler />} />
-                <Route path="/bump" element={<Bump />} />
+                  {/* Apps */}
+                  <Route path="/dex" element={<KOLTrader />} />
+                  <Route path="/dexv2" element={<DexV2 />} />
+                  <Route path="/bundler" element={<Bundler />} />
+                  <Route path="/bump" element={<Bump />} />
 
-                {/* HTTPS Routes */}
-                <Route path="/https/introduction" element={<Introduction />} />
-                <Route
-                  path="/https/generate-wallets"
-                  element={<GenerateWallets />}
-                />
-                <Route path="/https/fund-wallets" element={<FundWallets />} />
-                <Route path="/https/claim-profits" element={<ClaimProfits />} />
-                <Route path="/https/create-ipfs" element={<CreateIPFS />} />
-                <Route
-                  path="/https/create-lookup-table"
-                  element={<CreateLookupTable />}
-                />
-                <Route path="/https/pump-chart" element={<PumpChart />} />
-                <Route
-                  path="/https/pump-token-info"
-                  element={<PumpTokenInfo />}
-                />
-                <Route
-                  path="/https/pump-bonding-curve"
-                  element={<PumpBondingCurve />}
-                />
-                <Route
-                  path="/https/pump-token-bump"
-                  element={<PumpTokenBump />}
-                />
-                <Route
-                  path="/https/pump-single-buy"
-                  element={<PumpSingleBuy />}
-                />
-                <Route
-                  path="/https/pump-single-sell"
-                  element={<PumpSingleSell />}
-                />
-                <Route
-                  path="/https/pump-multi-buy"
-                  element={<PumpMultiBuy />}
-                />
-                <Route
-                  path="/https/pump-multi-sell"
-                  element={<PumpMultiSell />}
-                />
-                <Route path="/https/pump-dump-all" element={<PumpDumpAll />} />
-                <Route
-                  path="/https/pump-launch-token"
-                  element={<PumpLaunchToken />}
-                />
-                <Route
-                  path="/https/pump-launch-bundle"
-                  element={<PumpLaunchBundle />}
-                />
-                <Route
-                  path="/https/dex-single-buy"
-                  element={<DexSingleBuy />}
-                />
-                <Route
-                  path="/https/dex-single-sell"
-                  element={<DexSingleSell />}
-                />
-                <Route path="/https/dex-paid" element={<DexPaid />} />
+                  {/* HTTPS Routes */}
+                  <Route path="/https/introduction" element={<Introduction />} />
+                  <Route
+                    path="/https/generate-wallets"
+                    element={<GenerateWallets />}
+                  />
+                  <Route path="/https/fund-wallets" element={<FundWallets />} />
+                  <Route path="/https/claim-profits" element={<ClaimProfits />} />
+                  <Route path="/https/create-ipfs" element={<CreateIPFS />} />
+                  <Route
+                    path="/https/create-lookup-table"
+                    element={<CreateLookupTable />}
+                  />
+                  <Route path="/https/pump-chart" element={<PumpChart />} />
+                  <Route
+                    path="/https/pump-token-info"
+                    element={<PumpTokenInfo />}
+                  />
+                  <Route
+                    path="/https/pump-bonding-curve"
+                    element={<PumpBondingCurve />}
+                  />
+                  <Route
+                    path="/https/pump-token-bump"
+                    element={<PumpTokenBump />}
+                  />
+                  <Route
+                    path="/https/pump-single-buy"
+                    element={<PumpSingleBuy />}
+                  />
+                  <Route
+                    path="/https/pump-single-sell"
+                    element={<PumpSingleSell />}
+                  />
+                  <Route
+                    path="/https/pump-multi-buy"
+                    element={<PumpMultiBuy />}
+                  />
+                  <Route
+                    path="/https/pump-multi-sell"
+                    element={<PumpMultiSell />}
+                  />
+                  <Route path="/https/pump-dump-all" element={<PumpDumpAll />} />
+                  <Route
+                    path="/https/pump-launch-token"
+                    element={<PumpLaunchToken />}
+                  />
+                  <Route
+                    path="/https/pump-launch-bundle"
+                    element={<PumpLaunchBundle />}
+                  />
+                  <Route
+                    path="/https/dex-single-buy"
+                    element={<DexSingleBuy />}
+                  />
+                  <Route
+                    path="/https/dex-single-sell"
+                    element={<DexSingleSell />}
+                  />
+                  <Route path="/https/dex-paid" element={<DexPaid />} />
 
-                {/* WebSocket Routes */}
-                <Route
-                  path="/websocket/introduction"
-                  element={<WebSocketIntroduction />}
-                />
-                <Route
-                  path="/websocket/token-migration"
-                  element={<TokenMigration />}
-                />
-                <Route
-                  path="/websocket/token-creation"
-                  element={<TokenCreation />}
-                />
-                <Route
-                  path="/websocket/token-trades"
-                  element={<TokenTrades />}
-                />
-                <Route path="/websocket/user-trades" element={<UserTrades />} />
-                <Route path="/websocket/kol-trades" element={<KOLTrades />} />
-                <Route
-                  path="/websocket/pool-creation"
-                  element={<PoolCreation />}
-                />
-                <Route path="/websocket/pool-trades" element={<PoolTrades />} />
-                <Route
-                  path="/websocket/pool-kol-trades"
-                  element={<PoolKOLTrades />}
-                />
+                  {/* WebSocket Routes */}
+                  <Route
+                    path="/websocket/introduction"
+                    element={<WebSocketIntroduction />}
+                  />
+                  <Route
+                    path="/websocket/token-migration"
+                    element={<TokenMigration />}
+                  />
+                  <Route
+                    path="/websocket/token-creation"
+                    element={<TokenCreation />}
+                  />
+                  <Route
+                    path="/websocket/token-trades"
+                    element={<TokenTrades />}
+                  />
+                  <Route path="/websocket/user-trades" element={<UserTrades />} />
+                  <Route path="/websocket/kol-trades" element={<KOLTrades />} />
+                  <Route
+                    path="/websocket/pool-creation"
+                    element={<PoolCreation />}
+                  />
+                  <Route path="/websocket/pool-trades" element={<PoolTrades />} />
+                  <Route
+                    path="/websocket/pool-kol-trades"
+                    element={<PoolKOLTrades />}
+                  />
 
-                {/* Tools */}
-                <Route
-                  path="/tools/lamport-converter"
-                  element={<LamportConverter />}
-                />
-                <Route
-                  path="/tools/wallet-generator"
-                  element={<WalletGenerator />}
-                />
-                <Route
-                  path="/tools/pump-token-info"
-                  element={<PumpTokenInfoApp />}
-                />
-                <Route
-                  path="/tools/vanity-grinder"
-                  element={<VanityGrinder />}
-                />
+                  {/* Tools */}
+                  <Route
+                    path="/tools/lamport-converter"
+                    element={<LamportConverter />}
+                  />
+                  <Route
+                    path="/tools/wallet-generator"
+                    element={<WalletGenerator />}
+                  />
+                  <Route
+                    path="/tools/pump-token-info"
+                    element={<PumpTokenInfoApp />}
+                  />
+                  <Route
+                    path="/tools/vanity-grinder"
+                    element={<VanityGrinder />}
+                  />
 
-                {/* Misc */}
-                <Route path="/fees" element={<Fees />} />
-                <Route path="/privacy" element={<Privacy />} />
-              </Routes>
-            </Suspense>
+                  {/* Misc */}
+                  <Route path="/fees" element={<Fees />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                </Routes>
+              </Suspense>
+            )}
           </main>
         </div>
         {!isAppRoute && <Footer />}

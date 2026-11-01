@@ -97,3 +97,14 @@ const DOCS_PREFIXES = ["/https", "/websocket", "/tools", "/fees", "/privacy"];
 
 export const isDocsRoute = (pathname) =>
   DOCS_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+
+export const GITHUB_REPO_URL = "https://github.com/shrayg/pumpagent";
+
+// Set to false to restore sign-in, the dashboard, apps, and tools.
+export const PROJECT_DISCONTINUED = true;
+
+const DISCONTINUED_PREFIXES = ["/signin", "/dashboard", "/tools", ...APP_ROUTES];
+
+export const isDiscontinuedRoute = (pathname) =>
+  PROJECT_DISCONTINUED &&
+  DISCONTINUED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
