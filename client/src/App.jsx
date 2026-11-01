@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Suspense, lazy, useState } from "react";
 import ScrollToTop from "./utils/ScrollToTop";
 import TopNav from "./components/TopNav/TopNav";
@@ -6,7 +6,9 @@ import SideBar from "./components/SideBar/SideBar";
 import Footer from "./components/Footer/Footer";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import { Helmet } from "react-helmet";
-import DiscontinuedNotice from "./components/Discontinued/DiscontinuedNotice";
+import DiscontinuedGuard, {
+  DISCONTINUED_STATE_KEY,
+} from "./components/Discontinued/DiscontinuedGuard";
 import {
   APP_ROUTES,
   isDocsRoute,
@@ -117,7 +119,7 @@ const Bundler = lazy(() => import("./components/Routes/Apps/Bundler/Bundler"));
 const Bump = lazy(() => import("./components/Routes/Apps/Bump/Bump"));
 
 const App = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const [navOpen, setNavOpen] = useState(false);
 
   const isAppRoute = APP_ROUTES.includes(pathname);
@@ -144,6 +146,7 @@ const App = () => {
       </Helmet>
 
       <CookieBanner />
+      <DiscontinuedGuard />
       <TopNav navOpen={navOpen} setNavOpen={setNavOpen} />
       <ScrollToTop />
 
@@ -153,7 +156,11 @@ const App = () => {
 
           <main className="flex-1 min-w-0 flex flex-col">
             {discontinued ? (
-              <DiscontinuedNotice />
+              <Navigate
+                to={`/${search}`}
+                replace
+                state={{ [DISCONTINUED_STATE_KEY]: true }}
+              />
             ) : (
               <Suspense fallback={<div className="p-4" />}>
                 <Routes>
